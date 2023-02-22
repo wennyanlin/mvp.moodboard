@@ -1,33 +1,36 @@
-import logo from './logo.svg';
 import { useEffect } from "react";
-import './App.css';
+import "./App.css";
+import HomePage from "./home_page/HomePage";
+import { Routes, Route, Link } from "react-router-dom";
+import Moodboards from "./all_moodboard_page/Moodboards";
+import NewMoodboard from "./new_moodboard_page/NewMoodboard";
 
 function App() {
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  useEffect(async() => {
+  const fetchData = async () => {
     try {
-      const data = await fetch('/');
-    } catch(err) {
-      console.log(err);
+      
+    } catch (error) {
+      
     }
-    
-  })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <Link to="/">Home</Link>
+      </nav>
+      <Routes>
+        <Route path="*" element={<HomePage />}></Route>
+        <Route path="/moodboards" element={<Moodboards />}></Route>
+        <Route path="/new_moodboard" element={<NewMoodboard />}></Route>
+      </Routes>
+
+      
     </div>
   );
 }
