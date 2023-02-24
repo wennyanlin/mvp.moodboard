@@ -1,0 +1,12 @@
+.displayArea {
+  max-width: 150px;
+  max-width: 200px;
+  margin: auto;
+  display: grid;
+}
+
+.displayArea img {
+  max-width: 100%;
+  max-width: 100%;
+  margin: auto;
+}

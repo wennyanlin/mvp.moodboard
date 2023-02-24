@@ -1,32 +1,21 @@
 import React from "react";
 import SelectedMoodboard from "./SelectedMoodboard";
 import ThumbGrid from "./ThumbGrid";
+import "./Moodboards.css";
 
-const data = {
-  elements: [
-    {
-        id: 1,
-        boardId: 2,
-        type: "label",
-        value: "text"
-   },
-   {
-        id: 2,
-        boardId: 2,
-        type: "image",
-        value: "Hello.jpg"
-   }
-]
-}
-const Moodboards = () => {
+const Moodboards = (props) => {
   return (
     <div>
-      <h3>All Moodboards</h3>
-      <div>
-        <SelectedMoodboard elements={data.elements} />
-      </div>
-      <div>
-      <ThumbGrid />
+      <h2>All Moodboards</h2>
+      <div className="container">
+        <SelectedMoodboard 
+          board1={props.board}
+        />
+        <ThumbGrid showBoardCb1={props.showBoardCb}
+          moodboardName={Array.from(
+            new Set(props.moodboards.map((m) => m.name))
+          )}
+        />
       </div>
     </div>
   );
