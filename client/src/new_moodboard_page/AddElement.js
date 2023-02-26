@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { randomIntFromInterval } from "../utils";
 
 const elementTypes = {
   imageUrl: "imageUrl",
@@ -8,10 +9,6 @@ const elementTypes = {
 const AddElement = (props) => {
   const [elementValue, setElementValue] = useState("");
   const [selectElementType, setSelect] = useState(elementTypes.imageUrl);
-
-  function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
 
   const handleSelectElemType = (event) => {
     const value = event.target.value;
