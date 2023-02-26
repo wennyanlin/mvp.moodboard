@@ -45,12 +45,12 @@ router.post("/", async (req, res) => {
 
     for (const element of elements) {
       await db(
-        `INSERT INTO elements (boardId, value, type) VALUE (${boardId}, ${element.value}, ${element.type})`
+        `INSERT INTO elements (boardId, value, type) VALUES (${boardId}, '${element.value}', '${element.type}')`
       );
     }
     res.send(results.data);
   } catch (error) {
-    res.status(500).send({ error: err.message });
+    res.status(500).send({ error: error.message });
   }
 });
 
