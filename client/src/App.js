@@ -13,7 +13,7 @@ function App() {
     // console.log(name);
     let selectedBoard = moodboards.filter((b) => b.name === name);
     setBoard(selectedBoard);
-  }
+  };
   useEffect(() => {
     getAllMoodboard();
   }, []);
@@ -24,25 +24,24 @@ function App() {
       if (response.ok) {
         const mbsResponse = await response.json();
         setMoodboards(mbsResponse);
-        
       }
     } catch (err) {
       console.log(`Network error: ${err.message}`);
     }
   };
-  
 
-  const addMoodboard = async (moodboard) => {
+  const addMoodboard = async (name, elements) => {
+    // console.log(name, elements)
     const options = {
       method: "POST",
-      headers: { "Content-Type": "aplication/json" },
-      body: JSON.stringify(moodboard),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, elements }),
     };
     try {
       let response = await fetch("/moodboards", options);
       if (response.ok) {
         let mbResponse = await response.json();
-        return mbResponse;
+        await getAllMoodboard();
       }
     } catch (err) {
       console.log(`Network error: ${err.message}`);
@@ -56,8 +55,20 @@ function App() {
       </nav>
       <Routes>
         <Route path="*" element={<HomePage moodboards={moodboards} />}></Route>
-        <Route path="/moodboards" element={<Moodboards moodboards={moodboards} board={board} showBoardCb={showBoard} />}></Route>
-        <Route path="/new_moodboard" element={<NewMoodboard />}></Route>
+        <Route
+          path="/moodboards"
+          element={
+            <Moodboards
+              moodboards={moodboards}
+              board={board}
+              showBoardCb={showBoard}
+            />
+          }
+        ></Route>
+        <Route
+          path="/new_moodboard"
+          element={<NewMoodboard board={board} addMoodboardCb={addMoodboard} />}
+        ></Route>
       </Routes>
     </div>
   );

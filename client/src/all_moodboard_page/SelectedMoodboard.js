@@ -1,36 +1,15 @@
 import React from "react";
 import "./SelectedMoodboard.css";
 
-// props
-/*
-props {
-    elements: [
-        {
-            id: 1,
-            boardId: 2,
-            type: label,
-            value: text
-       },
-       {
-            id: 2,
-            boardId: 2,
-            type: image,
-            value: "Hello.jpg"
-       }
-    ]
-}
-
-*/
-
 const SelectedMoodboard = (props) => {
-    console.log(props.board1);
+  console.log(props)
   return (
     <div className="displayArea">
-      {props.board1.map((element) => {
+      {props.board1.map((element, index) => {
         if (element.type === "label") {
-          return <p key={element.id}>{element.value}</p>;
+          return <p key={index}>{element.value}</p>;
         } else {
-          return <img key={element.id} src={element.value} />;
+          return <img key={index} src={element.value} />;
         }
       })}
     </div>
