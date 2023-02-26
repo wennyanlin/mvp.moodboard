@@ -9,6 +9,10 @@ const AddElement = (props) => {
   const [elementValue, setElementValue] = useState("");
   const [selectElementType, setSelect] = useState(elementTypes.imageUrl);
 
+  function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   const handleSelectElemType = (event) => {
     const value = event.target.value;
     setSelect((selectElementType) => value);
@@ -16,7 +20,9 @@ const AddElement = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.addElements(elementValue, selectElementType);
+    const positionTop = randomIntFromInterval(0, 75);
+    const positionLeft = randomIntFromInterval(0, 75);
+    props.addElements(elementValue, selectElementType, positionTop, positionLeft);
     setElementValue("");
   };
 

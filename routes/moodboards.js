@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
 
     for (const element of elements) {
       await db(
-        `INSERT INTO elements (boardId, value, type) VALUES (${boardId}, '${element.value}', '${element.type}')`
+        `INSERT INTO elements (boardId, value, type, top, \`left\`) VALUES (${boardId}, '${element.value}', '${element.type}', '${element.top}', '${element.left}')`
       );
     }
     res.send(results.data);

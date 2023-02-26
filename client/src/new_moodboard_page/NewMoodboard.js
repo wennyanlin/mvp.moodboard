@@ -6,9 +6,8 @@ const NewMoodboard = (props) => {
   let [elements, setElements] = useState([]);
   let [boardName, setBoardName] = useState("");
 
-  const handleAddElements = (value, type) => {
-    setElements([...elements, { type, value }]);
-    
+  const handleAddElements = (value, type, top, left) => {
+    setElements([...elements, { type, value, top, left }]);
   };
   const handleSubmit = () => {
     props.addMoodboardCb(boardName, elements);
@@ -18,7 +17,7 @@ const NewMoodboard = (props) => {
     setBoardName(event.target.value);
   };
   return (
-    <div>
+    <div >
       <h3>New Moodboard</h3>
       <AddElement addElements={handleAddElements} />
       <SelectedMoodboard board1={elements} />
