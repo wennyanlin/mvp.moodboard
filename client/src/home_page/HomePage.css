@@ -8,6 +8,11 @@ h1 {
   background-color: transparent;
   border-color: rgba(232, 221, 110, 0.938);
   padding: 30px;
+  --bs-btn-hover-border-color: #fff3cd;
+  --bs-btn-hover-bg: rgb(120, 156, 30);
+}
+
+.btn-name {
 }
 
 .backgroundPic {

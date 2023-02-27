@@ -1,7 +1,4 @@
-.ThumbGrid p {
-  cursor: pointer;
-  border-color: cadetblue;
+.list-group-item {
+  color:darkgreen;
 }
-/*
-yellow, black
-*/
+

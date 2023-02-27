@@ -1,4 +1,7 @@
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+body {
+  background-color: whitesmoke;
+}
+
+h3 {
+  color: darkgreen;
 }

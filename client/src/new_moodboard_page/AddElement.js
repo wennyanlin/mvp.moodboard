@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { randomIntFromInterval } from "../utils";
+import "./AddElement.css";
 
 const elementTypes = {
   imageUrl: "imageUrl",
@@ -19,7 +20,12 @@ const AddElement = (props) => {
     event.preventDefault();
     const positionTop = randomIntFromInterval(0, 75);
     const positionLeft = randomIntFromInterval(0, 75);
-    props.addElements(elementValue, selectElementType, positionTop, positionLeft);
+    props.addElements(
+      elementValue,
+      selectElementType,
+      positionTop,
+      positionLeft
+    );
     setElementValue("");
   };
 
@@ -31,30 +37,38 @@ const AddElement = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            onChange={(event) => handleSelectElemType(event)}
-            type="radio"
-            checked={selectElementType === elementTypes.imageUrl}
-            value={elementTypes.imageUrl}
-          ></input>
-          Image
-        </label>
-        <label>
-          <input
-            onChange={(event) => handleSelectElemType(event)}
-            type="radio"
-            checked={selectElementType === elementTypes.label}
-            value={elementTypes.label}
-          ></input>
-          Label
-        </label>
+        <div className="radioButtonAlign">
+          <label className="formlabel2">
+            <input
+              className="radioButton"
+              onChange={(event) => handleSelectElemType(event)}
+              type="radio"
+              checked={selectElementType === elementTypes.imageUrl}
+              value={elementTypes.imageUrl}
+            ></input>
+            Image
+          </label>
+          <label className="formlabel2">
+            <input
+              className="radioButton"
+              onChange={(event) => handleSelectElemType(event)}
+              type="radio"
+              checked={selectElementType === elementTypes.label}
+              value={elementTypes.label}
+            ></input>
+            Label
+          </label>
+        </div>
         <input
+          className="inputStyle"
+          placeholder="Add element"
           type="text"
           value={elementValue}
           onChange={(event) => handleInput(event)}
         ></input>
-        <button type="submit">Add</button>
+        <button className="addButton" type="submit">
+          Add
+        </button>
       </form>
     </div>
   );

@@ -1,0 +1,27 @@
+.formlabel1 {
+  display: block;
+  margin-block: 10px;
+  font-size: 17px;
+}
+.formlabel2 {
+  margin-right: 25px;
+  margin-bottom: 2px;
+  color: darkgreen;
+}
+
+.radioButton {
+  margin-right: 5px;
+}
+.radioButtonAlign {
+  text-align: left;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  margin-top: 60px;
+}
+.addButton {
+  color: darkgreen;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom-color: black;
+}
+

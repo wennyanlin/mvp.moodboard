@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="container overflow-hidden text-center">
         <div className="row gx-5">
           <div className="col">
-            <div className="p-3">
+            <div className="p-3 btn-name">
               <Link className="btn btn-primary" to="/moodboards">
                 All Moodboards
               </Link>
