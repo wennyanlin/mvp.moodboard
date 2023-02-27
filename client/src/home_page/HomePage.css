@@ -1,0 +1,19 @@
+h1 {
+  padding: 200px;
+  color: rgba(232, 221, 110, 0.938);
+}
+
+.btn-primary {
+  color: rgb(134, 184, 8);
+  background-color: transparent;
+  border-color: rgba(232, 221, 110, 0.938);
+  padding: 30px;
+}
+
+.backgroundPic {
+  background-image: url("./background1.jpeg");
+  background-size: cover;
+  height: 100vh;
+}
+
+/*cadetblue*/

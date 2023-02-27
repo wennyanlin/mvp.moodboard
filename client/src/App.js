@@ -49,10 +49,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <nav>
-        <Link to="/">Home</Link>
-      </nav>
+    <div className="App" >
+      
       <Routes>
         <Route path="*" element={<HomePage moodboards={moodboards} />}></Route>
         <Route
